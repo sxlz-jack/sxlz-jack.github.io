@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-08-06T16:16:00.309Z</updated>
+  <updated>2022-08-27T18:00:41.124Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用microsoft azure搭建一个神奇的魔法门</title>
+    <link href="http://example.com/post/%E5%88%A9%E7%94%A8Microsoft%20azure%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%A5%9E%E5%A5%87%E7%9A%84%E9%AD%94%E6%B3%95%E9%97%A8.html"/>
+    <id>http://example.com/post/%E5%88%A9%E7%94%A8Microsoft%20azure%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%A5%9E%E5%A5%87%E7%9A%84%E9%AD%94%E6%B3%95%E9%97%A8.html</id>
+    <published>2022-08-26T14:33:56.000Z</published>
+    <updated>2022-08-27T18:00:41.124Z</updated>
+    
+    <content type="html"><![CDATA[<div class="custom-quote warning"><span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg" data-reactroot=""><path fill="" d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z" undefined="1"></path><path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M12 8V13"></path><path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M12 15.99V16.01"></path></svg></span><p class="custom-quote-title">注意</p><p>写于2022年8月26日，<br>注意你的azure账号必须有资格使用免费服务，可以用github学生包来获取学生认证，有100美元的试用金，<br>还有如首次绑定信用卡，有200美元的试用金，或者你有msdn，mpn订阅也均可。</p></div><h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2><h3 id="创建虚拟机实例"><a href="#创建虚拟机实例" class="headerlink" title="创建虚拟机实例"></a>创建虚拟机实例</h3><p>1，打开微软azure的<a href="https://portal.azure.com/#home">官网</a>：<a href="https://portal.azure.com/#home">https://portal.azure.com/#home</a></p><p>2，创建一个虚拟机实例<br>大致设置如下：<br><img src="https://bl3302files.storage.live.com/y4m-PM-tWVve6gm0o8yLZ17oNJ7DUThh0-sv4-wQkVoyfsjkq7EUEH8FFa4s4ybAp0X0a_SGFR5MW18bKC5DYRx5AI6NUVWru-kUBdGZE9syYYKTrRyqm3cblWyfa32hbrobdJzu3CTHy2J2ZzOoFinIEHOorZ46oHdFRIU280CuGfbFmEOBTMimC7O2By1rkHS?width=1276&height=961&cropmode=none"></p><p><img src="https://bl3302files.storage.live.com/y4mghEmHEgmjB22H6CjVDPgQrtCIlrLDWsuflDH-gMdtk9ue34hvD9JGL59JNJLzbyOSReCDVNuV1r_XgjzVRhNK6cqcZVkb2dJm7Y3L5iLZP0PYmPYli-OQNzvvJ4siGgMMpMX9MYOrOAv8lz0H_coY1qGzxYnH8MxstYf2jlWrgqDwl89SYDSV-0jR8__Btpb?width=1381&height=887&cropmode=none"></p><p>这里主要注意<strong>基本项</strong>，<strong>磁盘项</strong>,都选择免费用例，且无论你之前用没用过Debian，这里都要选择Debian，方便后续操作。</p><p>最后<strong>查看与创建</strong>会让你填写手机号码<br><img src="https://bl3302files.storage.live.com/y4mzgMpt0f8hFaL8PEHIwMllYgzJHfxpAY0PAoCOPWdiW7kKvM4vSncsGXBJe3ifmXRjsPHCJiyfrvzmI4BATdt5SFnrPldSg81KwmFTxrF6idmIuyBJ0CF1Dkg1rKGxqeK1rx5IQjC5mGjG2W2vQvfwzkW8XCIXsydUvcWo_Z5BslGCUaG9AwLqJaVzGw3XL8d?width=1702&height=920&cropmode=none"></p><h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>1,<img src="https://bl3302files.storage.live.com/y4m9-OKzmBAv52IpzwNal7n6n8rh3Ocche_RfzHbM9zolu3hY7xWugsJLtfGmcPUO3MpuOvpxweL3RzrJ3gOHhb2c_w79sqNkouAvyWjJ2bSMQvbGFFvC4dD8fYFozMFE53v8yN_EaPsCn3Rt5TLJ2UAp33vzj-kZ9UIfN3b1iF8OiyHCJ_Nlk8_QOYI3ozaBMO?width=3840&height=2160&cropmode=none"></p><p>在域名解析处，主机记录填写自定义的子域名，记录类型为a，记录值填写虚拟机分配的ip，开启解析即可，大约10分钟左右生效。</p><p>2,关于虚拟机的详细情况，可以找到，仪表盘—&gt;虚拟机，选择你想了解的双击即可。</p><p>3，<br><img src="https://bl3302files.storage.live.com/y4m6Ouiq40Yji2XVGSeuNnQxEQe79LCiSlAorHQtEwTXRt4SA2HcaTi4QQ2Qc_0LfhHhVm2APbJczs0Y5tznwVzj1uy1WFp0J6t0SXxjGhScajDVorRfd0Xs68bz2TDoPo_5qrdzgrcyQeLgW2r_xunS1pGwVvqt7sMdcT5kykxOlhFl7z9b4_ztw8Aj5xRRNTE?width=3840&height=2160&cropmode=none"><br>找到，虚拟机-&gt;网络，<strong>添加入站端口规则</strong></p><p>如下图所示设置<br><img src="https://bl3302files.storage.live.com/y4mbgNcPiXFvdsLWtiOR8gFyYpwHQy_cm8gZC4dM-IeKjYt69iOIgHmmKgSdz3p36yg9YyPG0nVvtoLc7q6nFS277WPPxZfq9WbR9Y7H8V9Giyg3zZE_jRtWI6TdXgmOrqiL-RqBja6ViG8HJkA86mlYj4IyovWe0v0J0qeQtqKg8hcpq1HDWriFKXT_drd_F6W?width=3840&height=2160&cropmode=none"></p><p>出站规则也如此设置</p><h3 id="ssh与本地连接"><a href="#ssh与本地连接" class="headerlink" title="ssh与本地连接"></a>ssh与本地连接</h3><p>我使用的是Xshell，其他的其实也类似，使用方法，大同小异，你用你习惯的ssh客户端即可。<br><img src="https://bl3302files.storage.live.com/y4mg7qyTJl7F8Fy2hdldVj-RoQIUw4VaPQ0iNT4J7FbjhjvDK9S4IEWQS24FyCie3X3tgyPqYf2NnKEOq3x8EAHq6AghYgqmNgmEIafoHlP5LAA_nHahAmtKMAV2M_3ZVVEEGzDKf6h_5cQsBk-gJtiYrHW5maHTfrNh8Sn7vLlEHLOxbG8JWx2C-UJQeQu5Ioq?width=1903&height=1017&cropmode=none"></p><p><img src="https://bl3302files.storage.live.com/y4m_3EqRNsNLXn8BR7QBjU0pyDUnz7fKIVwRKaerUelw4dv_FPn-ruMHiLCGay-qzJoMAIznBEaA_FSZdOLL5PnbmvmcjZB6yWch7E0eCgnoksumWsVsZgwn-Ivx49Et6d-xsDResrieRYw9lhLZ1ic2XWrwyTFuA8ivWXp2VgoUReFL-1nhVCKzLfQWuzky_yX?width=1780&height=1053&cropmode=none"></p><p>大致设置如上图即可，（我用的密码连接）</p><p>双击新建好的会话，出现<strong>你设置的用户名@你的虚拟机名：<strong>,就说明连接上了</p><h3 id="输入命令"><a href="#输入命令" class="headerlink" title="输入命令"></a>输入命令</h3><p>1:开启root登入</p><pre class="line-numbers language-none"><code class="language-none">sudo -i<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>2:开启防火墙</p><pre class="line-numbers language-none"><code class="language-none">iptables -P INPUT ACCEPTiptables -P FORWARD ACCEPTiptables -P OUTPUT ACCEPTiptables -Fapt-get purge netfilter-persistent&#x2F;&#x2F;一行一条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>重启,手动重启也行</p><pre class="line-numbers language-none"><code class="language-none">reboot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>3：申请SSL证书</p><pre class="line-numbers language-none"><code class="language-none">apt update -y       # Debian&#x2F;Ubuntu 命令apt install -y curl   # Debian&#x2F;Ubuntu 命令apt install -y socat  # Debian&#x2F;Ubuntu 命令&#x2F;&#x2F;一行一条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><ul><li><p>替换为你经常使用的邮箱</p><pre class="line-numbers language-none"><code class="language-none">curl https:&#x2F;&#x2F;get.acme.sh | sh~&#x2F;.acme.sh&#x2F;acme.sh --register-account -m xxxxxxx@xxx.com&#x2F;&#x2F;一行一条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li><p>设置你要申请ssl证书的域名,改变你的解析域（在dns解析绑定虚拟机ip的那个子域名）</p><pre class="line-numbers language-none"><code class="language-none">~&#x2F;.acme.sh&#x2F;acme.sh --issue -d xxx.xxx.com --standalone<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>更换你的解析域名，此步完成后会在VPS root目录下<br>看到证书公钥&#x2F;root&#x2F;cert.crt及验证文件&#x2F;root&#x2F;private.key</p><pre class="line-numbers language-none"><code class="language-none">~&#x2F;.acme.sh&#x2F;acme.sh --installcert -d naiyou.naiyoubbq.xyz --key-file &#x2F;root&#x2F;private.key --fullchain-file &#x2F;root&#x2F;cert.crt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><h3 id="4：安装X-ui面板"><a href="#4：安装X-ui面板" class="headerlink" title="4：安装X-ui面板"></a>4：<a href="https://github.com/vaxilu/x-ui">安装X-ui面板</a></h3><pre class="line-numbers language-none"><code class="language-none">bash &lt;(curl -Ls https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;vaxilu&#x2F;x-ui&#x2F;master&#x2F;install.sh)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://bl3302files.storage.live.com/y4m8St7mHwIIUI1GNUs35Hir8lHEltKRFsvy5afyFwdsfty83BrlD2fk0axuZbR7U2njNcagHRp_EJIBMUlTJFvaTYvgeoZshT3_tF95dJByYNh3sRwZE4vOM75d3Vvt8AoGGiNfKB76qggOO4F3CWTd0wtlUNF8D7hrNVVf1It80a75OwNAqZgL3b2VwtdcBcw?width=775&height=417&cropmode=none"></p><p><strong>注意上图此处的端口号和密码账号</strong></p><p>以相应的ip或者绑定的域名，以及相应的端口打开这个网页后，输入密码账号<br><img src="https://bl3302files.storage.live.com/y4m5sqmvZ5bd5VLgduIv9p3dcQN_o3graODD4luPkNeEdf6BknOh3FV48HUeh4QZFwEzFwRoXqGvq2qK3hy9OThVSu42FZPlp8uRl2Ry6gVeU7OqwE6BrLaFSJlwF9JqB5ug73686wfOf5NqDGlzwPdC3G_wlYCNWlanuRHmqDegUfhyKseGB2TDAGQI0_RkpUC?width=3840&height=2160&cropmode=none"></p><p>打开面板设置<br>端口可以自定义<br><strong>公钥&#x2F;root&#x2F;cert.crt<br>验证文件&#x2F;root&#x2F;private.key</strong><br>填入下图相应处<br><img src="https://bl3302files.storage.live.com/y4mtS8zs75pc9Jt-pD-nJI4NpkbTwqIJmzC-Jk95R_jzOej8cgzss-fGiMGTy5gxi_oVeV_Z0kP9ycT6NyWeSVGqzfzlrgFLchTbM3rOescCy66aBdhrrqXf-Q293YbzyLJRM8T-jfhqLjM0BxiZSp7lXDPFMmySC1R9nwX-1aLGXZFKjk_5hk9c8_6kWpIste0?width=3840&height=2160&cropmode=none"></p><p><strong>注意，最好更改用户设置的相关信息，为了安全起见</strong></p><p>保存以上设置后，请重启面板</p><p>然后重新打开，找到入站列表，点加号,如下图所设置，点击添加即可<br><img src="https://bl3302files.storage.live.com/y4mGbaqcOMz_rmqJEqBSYGwDmSSKexgN69cl1QpITCU4a9Z0H7kubUmhCWouI706Y-UW47RER_aaZtaNXeBbxQWypBizs3k9s13dgiBOEbg6m5RTK-0KD5pFigdsWO7mSacSx0dxvU8N1sRmtXQM-FT5Cqh-fMpLlkWtvOiEBaQKcwlKZ1B2IKwnmzCXsaWqFmP?width=1701&height=832&cropmode=none"></p><p>然后,点击详细信息查看，复制链接，此链接即可在粘贴板导入V2ray客户端上，基本就完成的魔法门的搭建<br><img src="https://bl3302files.storage.live.com/y4mUaQ250qFz0i22ZhWvur3Mim1b0xDXpNZJZ6MC_36wmuJTWgWe9XuKVll3mscx9rZoq6rC_mD_v9mPbr4j87MQ-AKnsx9hJK8TQPOGYd8bVR2-_8IA_My7Cj_tx28DD3r2diZ-7iLIsH_wYWRurkrRWHITnSz34Z2gnW-_Wj_SMVcaVRTu-3f5ZomjB_blnW4?width=1700&height=844&cropmode=none"></p><h3 id="V2rayN使用"><a href="#V2rayN使用" class="headerlink" title="V2rayN使用"></a>V2rayN使用</h3><p>V2rayN 下载地址：<a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p><p>1：在V2rayN中，右键从剪切板导入后，我们点击 <strong>设置-&gt;参数设置-&gt;V2rayN设置—core类型选择Xray core</strong><br><img src="https://bl3302files.storage.live.com/y4mljBMN5_Gq5feCuY5GnvcVOa3ri7tuB-QGwfAQg-glE755oe_lt-PLgNvkvPdLG5uBLUMg-bvgPtT3vwFfnPK_ucEIBC9b2oy6IPthtm41_VW7w13H1xbmcDaBKF23fKGLoemE1HKce3Zps4taX_rqxlTOgG0eBBgW2Ewh89ENfMwnmDk9D307u5SC24LzAFR?width=3840&height=2160&cropmode=none"></p><h3 id="（可选，注意不适合Ubuntu）BBR加速"><a href="#（可选，注意不适合Ubuntu）BBR加速" class="headerlink" title="（可选，注意不适合Ubuntu）BBR加速"></a><a href="https://github.com/Chikage0o0/Linux-NetSpeed">（可选，注意不适合Ubuntu）BBR加速</a></h3><p>可能搭好后的网速并没有那么快，你可以选择安装一些加速模块，比如这个BBR，当然你可以选择不加。</p><p>命令行</p><pre class="line-numbers language-none"><code class="language-none">wget -N --no-check-certificate &quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://bl3302files.storage.live.com/y4mWAjyOEuWBB6FhvxqwkgxM0n5Dr_9dmKrohpib0eJ19sx9s3ED1CrSXliEWuLa50pBB21sr10n_TMx2qlMgH4VCYnqiuk_lOnajkxO2Hqsww3Kl9uF96vGiDd4MPNn1M5ZzZF9eU2XH3XvE69kXFy6MS-p_9HIPcDM_sRNI2M3FM7dDO8V6S-2aABxJ-acFh1?width=778&height=419&cropmode=none"><br>看见选择面板后，选择2，回车。</p><p><img src="https://bl3302files.storage.live.com/y4mbVfkD8rrLXH3FuM9KjzwxHFDHWykGrXr5lz7tmZpo6ezrfM_e_NgU7oxA5Qsx-framA5o0XVngzYKVtUpC0tvsFRr4V5ffRnnIET9Z-oEw38MsW8BePsIhhvSQaTpxypKH6wXZzJF-xZ8p2rBjdWL9BrfCi7celmnD3z7_RFAfBRtH2SDOSzTFgDxHsx3CMQ?width=779&height=417&cropmode=none"><br>当如上图所示时，方向键控制，选no，回车</p><p>加载完成后我们选择重启。</p><p>重新输入<br>命令行</p><pre class="line-numbers language-none"><code class="language-none">wget -N --no-check-certificate &quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://bl3302files.storage.live.com/y4mVg_K2u8UQL-HieEk5TNzwgE3cwS140zMJjAUylV3ka-hg1TsvsKiiTBCp53_7GlDRh_lVwOndckyiK8PgVXIS5KJ7754ZFqj-xEKLeyDc1AS0f2KzRsZSM78Nt5M2dTx-nHQDBdOoRyWemCOa5ZtRefVVP77CVVc5DU6DaQb6aA2TAqsHGtUYXXM-QeaCiTJ?width=722&height=440&cropmode=none"></p><p>看到上图中BBR plus已经安装后，此时选择7，回车即可获得加速。</p><h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>因为其敏感性，最好私下部署，个人或熟人使用。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;custom-quote warning&quot;&gt;
+&lt;span class=&quot;custom-quote-svg&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;&quot; xmlns=&quot;http://www.</summary>
+      
+    
+    
+    
+    
+    <category term="vps" scheme="http://example.com/tags/vps/"/>
+    
+  </entry>
   
   <entry>
     <title>申请微软E5开发者订阅</title>
@@ -63,29 +86,6 @@
   </entry>
   
   <entry>
-    <title>欢迎来到 致彩之镜</title>
-    <link href="http://example.com/post/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E8%87%B4%E5%BD%A9%E4%B9%8B%E9%95%9C.html"/>
-    <id>http://example.com/post/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E8%87%B4%E5%BD%A9%E4%B9%8B%E9%95%9C.html</id>
-    <published>2022-07-15T09:25:14.000Z</published>
-    <updated>2022-07-17T09:34:48.315Z</updated>
-    
-    <content type="html"><![CDATA[<div class="custom-quote warning"><span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg" data-reactroot=""><path fill="" d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z" undefined="1"></path><path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M12 8V13"></path><path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M12 15.99V16.01"></path></svg></span><p class="custom-quote-title">注意</p><p><srtong>新站点</srtong></p></div><h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a><code>新特性</code></h3><img src="http://www.sxlz.club/wp-content/uploads/2022/03/女孩女子帽子山石头平静森林6k人物图片_彼岸图网-scaled.jpg" width="40%" height="40%"><ul><li><strong>基于hexo博客新框架</strong></li><li><strong>静态存储在Github仓库上</strong></li><li><strong>hexo框架下的 Aurora主题</strong></li><li><strong>该主题基于vue3开发</strong></li><li><strong>相对于WordPress来说，在写文章上更贴近写代码</strong></li></ul><h3 id="站点的用途"><a href="#站点的用途" class="headerlink" title="站点的用途"></a>站点的用途</h3><ul><li>内容偏向写教程</li><li>体验新框架的编辑发布流程</li><li>提高自己的折腾能力</li></ul><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>有可能的话，后续还搭建几个工具站，如云盘，图床，在线工具等。目前<a href="https://www.sxlz.club/">懒书</a><br>负责学习，生活记录，<steong><a href="https://sxlz-jack.github.io/">致彩</a></strong>负责折腾过程记录，毕竟某些教程发布在已经备案的站点里不太适合。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;div class=&quot;custom-quote warning&quot;&gt;
-&lt;span class=&quot;custom-quote-svg&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;&quot; xmlns=&quot;http://www.</summary>
-      
-    
-    
-    
-    
-    <category term="博客搭建" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>hexo+aurora+github搭建</title>
     <link href="http://example.com/post/hexo-aurora-github%E6%90%AD%E5%BB%BA.html"/>
     <id>http://example.com/post/hexo-aurora-github%E6%90%AD%E5%BB%BA.html</id>
@@ -109,19 +109,42 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>欢迎来到 致彩之镜</title>
+    <link href="http://example.com/post/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E8%87%B4%E5%BD%A9%E4%B9%8B%E9%95%9C.html"/>
+    <id>http://example.com/post/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E8%87%B4%E5%BD%A9%E4%B9%8B%E9%95%9C.html</id>
+    <published>2022-07-15T09:25:14.000Z</published>
+    <updated>2022-07-17T09:34:48.315Z</updated>
+    
+    <content type="html"><![CDATA[<div class="custom-quote warning"><span class="custom-quote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg" data-reactroot=""><path fill="" d="M20.86 14.13C20 14.7 19.56 15.74 19.77 16.76C20.13 18.55 18.55 20.13 16.76 19.77C15.74 19.57 14.7 20 14.13 20.86C13.12 22.38 10.89 22.38 9.88 20.86C9.3 20 8.26 19.56 7.24 19.77C5.45 20.13 3.87 18.55 4.23 16.76C4.43 15.74 4 14.7 3.14 14.13C1.62 13.12 1.62 10.89 3.14 9.88C4 9.3 4.44 8.26 4.23 7.24C3.87 5.45 5.45 3.87 7.24 4.23C8.26 4.44 9.3 4 9.87 3.14C10.88 1.62 13.11 1.62 14.12 3.14C14.7 4 15.74 4.44 16.76 4.23C18.55 3.87 20.13 5.45 19.77 7.24C19.56 8.26 20 9.3 20.86 9.87C22.38 10.88 22.38 13.12 20.86 14.13Z" undefined="1"></path><path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M12 8V13"></path><path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M12 15.99V16.01"></path></svg></span><p class="custom-quote-title">注意</p><p><srtong>新站点</srtong></p></div><h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a><code>新特性</code></h3><img src="http://www.sxlz.club/wp-content/uploads/2022/03/女孩女子帽子山石头平静森林6k人物图片_彼岸图网-scaled.jpg" width="40%" height="40%"><ul><li><strong>基于hexo博客新框架</strong></li><li><strong>静态存储在Github仓库上</strong></li><li><strong>hexo框架下的 Aurora主题</strong></li><li><strong>该主题基于vue3开发</strong></li><li><strong>相对于WordPress来说，在写文章上更贴近写代码</strong></li></ul><h3 id="站点的用途"><a href="#站点的用途" class="headerlink" title="站点的用途"></a>站点的用途</h3><ul><li>内容偏向写教程</li><li>体验新框架的编辑发布流程</li><li>提高自己的折腾能力</li></ul><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>有可能的话，后续还搭建几个工具站，如云盘，图床，在线工具等。目前<a href="https://www.sxlz.club/">懒书</a><br>负责学习，生活记录，<steong><a href="https://sxlz-jack.github.io/">致彩</a></strong>负责折腾过程记录，毕竟某些教程发布在已经备案的站点里不太适合。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;custom-quote warning&quot;&gt;
+&lt;span class=&quot;custom-quote-svg&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;&quot; xmlns=&quot;http://www.</summary>
+      
+    
+    
+    
+    
+    <category term="博客搭建" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你好，世界！</title>
     <link href="http://example.com/post/hello-world.html"/>
     <id>http://example.com/post/hello-world.html</id>
     <published>2022-07-11T03:20:40.742Z</published>
-    <updated>2022-07-20T08:09:01.637Z</updated>
+    <updated>2022-08-27T12:49:11.098Z</updated>
     
-    <content type="html"><![CDATA[<hr><h2 id="你好，世界！"><a href="#你好，世界！" class="headerlink" title="你好，世界！"></a>你好，世界！</h2><p>欢迎来到Hexo！这是你的第一篇帖子。查看文档了解更多信息。如果您在使用Hexo时遇到任何问题，可以在疑难解答中找到答案，也可以在GitHub上问我。</p><h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/writing.html">写作</a></p><h3 id="设置文章封面"><a href="#设置文章封面" class="headerlink" title="设置文章封面"></a>设置文章封面</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ 文章里添加cover: 你的图片链接 （记得冒号后面有空格）"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/server.html">服务器</a></p><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/generating.html">生成</a></p><h3 id="部署至远程站点"><a href="#部署至远程站点" class="headerlink" title="部署至远程站点"></a>部署至远程站点</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/one-command-deployment.html">部署</a></p>]]></content>
+    <content type="html"><![CDATA[<p>欢迎来到Hexo！这是你的第一篇帖子。查看文档了解更多信息。如果您在使用Hexo时遇到任何问题，可以在疑难解答中找到答案，也可以在GitHub上问我。</p><h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/writing.html">写作</a></p><h3 id="设置文章封面"><a href="#设置文章封面" class="headerlink" title="设置文章封面"></a>设置文章封面</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ 文章里添加cover: 你的图片链接 （记得冒号后面有空格）"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/server.html">服务器</a></p><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/generating.html">生成</a></p><h3 id="部署至远程站点"><a href="#部署至远程站点" class="headerlink" title="部署至远程站点"></a>部署至远程站点</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>关于更多: <a href="https://hexo.io/docs/one-command-deployment.html">部署</a></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;你好，世界！&quot;&gt;&lt;a href=&quot;#你好，世界！&quot; class=&quot;headerlink&quot; title=&quot;你好，世界！&quot;&gt;&lt;/a&gt;你好，世界！&lt;/h2&gt;&lt;p&gt;欢迎来到Hexo！这是你的第一篇帖子。查看文档了解更多信息。如果您在使用Hexo时遇到任何问题，可</summary>
+    <summary type="html">&lt;p&gt;欢迎来到Hexo！这是你的第一篇帖子。查看文档了解更多信息。如果您在使用Hexo时遇到任何问题，可以在疑难解答中找到答案，也可以在GitHub上问我。&lt;/p&gt;
+&lt;h2 id=&quot;快速上手&quot;&gt;&lt;a href=&quot;#快速上手&quot; class=&quot;headerlink&quot; title=&quot;快</summary>
       
     
     
